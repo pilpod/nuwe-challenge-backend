@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(AcademicRecord::class);
     }
+
+    public function workExperiences()
+    {
+        return $this->hasMany(WorkExperience::class);
+    }
 }

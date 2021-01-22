@@ -46,4 +46,27 @@ class UserTest extends TestCase
 
     }
 
+    public function test_user_can_store_his_work_experience()
+    {
+        $user = User::factory()->create();
+
+        $data = [
+            'position' => 'Team Leader',
+            'organization_name' => 'Alguna',
+            'organization_activity' => 'I+D',
+            'description' => 'Some information about me',
+            'month_start' => '12',
+            'year_start' => '2020',
+            'month_end' => '01',
+            'year_end' => '2021',
+            'user_id' => $user->id,
+        ];
+
+        $this->actingAs($user)
+            ->post('/user/' . $user->id . '/work-experience', $data);
+
+        $this->assertDatabaseCount('work_experiences', 1);
+        $this->assertDatabaseHas('work_experiences', $data);
+    }
+
 }
