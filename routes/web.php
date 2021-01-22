@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AcademicRecordController;
+use App\Http\Controllers\WorkExperienceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('user.academic-record', AcademicRecordController::class)->shallow()->middleware(['auth']);
+Route::resource('user.academic-record', AcademicRecordController::class)->shallow();
+Route::resource('user.work-experience', WorkExperienceController::class)->shallow();
 
 
 require __DIR__.'/auth.php';

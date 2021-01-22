@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AcademicRecordController extends Controller
 {
+    public function index()
+    {
+        
+    }
+
     public function store(Request $request)
     {
         $user = auth()->user();
@@ -22,8 +27,6 @@ class AcademicRecordController extends Controller
             'year_end' => $request->year_end,
             'user_id' => $user->id,
         ]);
-
-        return view('dashboard');
-
+        
     }
 }

@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use App\Models\AcademicRecord;
+use App\Models\WorkExperience;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -46,6 +47,19 @@ class UserTest extends TestCase
 
     }
 
+    public function test_user_can_access_to_his_academic_record()
+    {
+        $user = User::factory()->create();
+        $records = AcademicRecord::factory(2)->create([
+            'user_id' => $user->id,
+        ]);
+
+        $response = $user->academicRecords()->get();
+            
+        $this->assertEquals($response[0]->degree, $records[0]->degree);
+        $this->assertEquals($response[1]->degree, $records[1]->degree);
+    }
+
     public function test_user_can_store_his_work_experience()
     {
         $user = User::factory()->create();
@@ -67,6 +81,19 @@ class UserTest extends TestCase
 
         $this->assertDatabaseCount('work_experiences', 1);
         $this->assertDatabaseHas('work_experiences', $data);
+    }
+
+    public function test_user_can_list_his_work_experience()
+    {
+        $user = User::factory()->create();
+        $works = WorkExperience::factory(2)->create([
+            'user_id' => $user->id,
+        ]);
+
+        $response = $user->workExperiences()->get();
+            
+        $this->assertEquals($response[0]->position, $works[0]->position);
+        $this->assertEquals($response[1]->position, $works[1]->position);
     }
 
 }
