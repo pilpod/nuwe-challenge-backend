@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use App\Models\AcademicRecord;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -15,7 +16,7 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function test_can_be_create_in_database()
+    public function test_user_can_be_create_in_database()
     {
         User::factory()->create();
 
@@ -26,22 +27,23 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $data = AcademicRecord::create([
+        $data = [
             'degree' => 'FP',
             'school' => 'Alguna',
             'country' => 'Spain',
-            'start_month' => '12',
-            'start_year' => '2020',
-            'end_month' => '01',
-            'end_year' => '2021',
+            'month_start' => '12',
+            'year_start' => '2020',
+            'month_end' => '01',
+            'year_end' => '2021',
             'user_id' => $user->id,
-        ]);
+        ];
 
-        $this->actingAs('$user')
-            ->storeAcademicRecord();
+        $this->actingAs($user)
+            ->post('/user/' . $user->id . '/academic-record', $data);
 
         $this->assertDatabaseCount('academic_records', 1);
         $this->assertDatabaseHas('academic_records', $data);
 
     }
+
 }

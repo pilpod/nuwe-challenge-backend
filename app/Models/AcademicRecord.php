@@ -19,4 +19,9 @@ class AcademicRecord extends Model
         'year_end',
         'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
