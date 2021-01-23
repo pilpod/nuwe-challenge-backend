@@ -30,6 +30,7 @@ class WorkExperienceFactory extends Factory
             'year_start' => $this->faker->year(),
             'month_end' => $this->faker->monthName(),
             'year_end' => $this->faker->year(),
+            'user_id' => $this->faker->numberBetween(1,3),
         ];
     }
 }

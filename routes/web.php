@@ -24,8 +24,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('user.academic-record', AcademicRecordController::class)->shallow();
-Route::resource('user.work-experience', WorkExperienceController::class)->shallow();
+Route::resource('user', UserController::class)->shallow()->middleware(['auth']);
+Route::resource('user.academic-record', AcademicRecordController::class)->shallow()->middleware(['auth']);
+Route::resource('user.work-experience', WorkExperienceController::class)->shallow()->middleware(['auth']);
 
 
 require __DIR__.'/auth.php';

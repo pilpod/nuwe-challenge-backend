@@ -21,3 +21,6 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::get('/user', [ApiController::class, 'index']);
+Route::get('/user/{user}', [ApiController::class, 'show']);
+Route::get('user/{user}/academic-record', [ApiController::class, 'showAcademicRecords']);
+Route::get('user/{user}/work-experience', [ApiController::class, 'showWorkExperience']);
