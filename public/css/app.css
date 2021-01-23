@@ -31424,6 +31424,56 @@ select {
           animation: bounce 1s infinite;
 }
 
+.carousel-inner {
+  max-height: 350px;
+}
+
+.carousel-inner img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+#footer {
+  background-color: #2ECC71;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer_items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#users {
+  margin: 25px 0;
+}
+
+.title-section-users {
+  font-size: 50px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.user-photo {
+  width: 140px;
+  height: 140px;
+}
+
+.user-card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.user-card img {
+  margin-bottom: 10px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -184443,4 +184493,3 @@ select {
             animation: bounce 1s infinite;
   }
 }
-

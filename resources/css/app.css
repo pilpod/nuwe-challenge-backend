@@ -1,3 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'carousel_boot.css';
+@import 'footer.css';
+@import 'home_users.css';

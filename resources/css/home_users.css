@@ -1,0 +1,25 @@
+#users {
+    margin: 25px 0;
+}
+
+.title-section-users {
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.user-photo {
+    width: 140px;
+    height: 140px;
+}
+
+.user-card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.user-card img {
+    margin-bottom: 10px;
+}
