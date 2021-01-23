@@ -9,21 +9,12 @@ Individual challenge 1 - Web Development - Backend
 - Laravel 8
 - Breezy
 
-## Info Route
-- Routes was creating with laravel resource
+## Testing
+- Testing with PHPUnit
+- and Api with postman
 
-- To post user academic-records
-    user/{user}/academic-record
-
-- To post user work-experience
-    user/{user}/work-experience
-
-- To get user academic-records
-    user/{user}/academic-record
-
-- To get user work-experiences
-     user/{user}/work-experience
-
+## Routes
+- Routes created with Route::resource()
 
 
 -----------------------------------------------------

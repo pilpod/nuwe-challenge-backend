@@ -88,7 +88,7 @@
                     @foreach ($users as $user)
                         <div class="col-md-3 col-lg-2 user-card">
                             <div>
-                                <img class="bd-placeholder-img rounded-circle user-photo" src="http://placeimg.com/640/480/people" alt="">
+                                <img class="bd-placeholder-img rounded-circle user-photo" src="{{ $user->img }}" alt="">
                                 <h2>{{ $user->name }}</h2>
                             </div>
                         </div>    
